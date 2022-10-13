@@ -7,7 +7,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.js index.js",
-    "start": "MEDIASOUP_LISTEN_IP=127.0.0.1 MEDIASOUP_ANNOUNCED_IP=127.0.0.1 DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERRORW*'} INTERACTIVE=${INTERACTIVE:='true'} node index.js"
+    "start": "MEDIASOUP_LISTEN_IP=0.0.0.0 MEDIASOUP_ANNOUNCED_IP=61.100.10.40 HTTPS_CERT_FULLCHAIN=/etc/nginx/ssl/_gesturelive_com.crt HTTPS_CERT_PRIVKEY=/etc/nginx/ssl/_gesturelive_com.key DOMAIN=dialog.gesturelive.com DEBUG=${DEBUG:='*mediasoup* *INFO* *WARN* *ERRORW*'} INTERACTIVE=${INTERACTIVE:='true'} node index.js",
+    "prod": "MEDIASOUP_LISTEN_IP=0.0.0.0 MEDIASOUP_ANNOUNCED_IP=61.100.10.40 HTTPS_CERT_FULLCHAIN=/etc/letsencrypt/live/gesturelive.com/fullchain.pem HTTPS_CERT_PRIVKEY=/etc/letsencrypt/live/gesturelive.com/privkey.pem DOMAIN=gesturelive.com node index.js"
+
   },
   "dependencies": {
     "@sitespeed.io/throttle": "^0.5.4",
